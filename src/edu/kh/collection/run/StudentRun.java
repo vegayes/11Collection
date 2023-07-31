@@ -1,5 +1,6 @@
 package edu.kh.collection.run;
 
+import edu.kh.collection.model.service.StudentReService;
 import edu.kh.collection.model.service.StudentService;
 
 public class StudentRun {
@@ -8,7 +9,12 @@ public class StudentRun {
 		
 		StudentService  service = new StudentService();
 		
-		service.displayMenu();
+//		service.displayMenu();
+		
+		
+		
+		StudentReService service2 = new StudentReService();
+		service2.menu();
 		
 	}
 	
