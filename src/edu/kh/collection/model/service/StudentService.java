@@ -401,7 +401,7 @@ public class StudentService {
 		
 			if(searchName.equals(studentList.get(i).getName())) {
 				
-				save += (" "+ studentList.get(i)+"\n");
+				save += (" "+ studentList.get(i)+"\n"); //get은 주어진 인덱스에 저장된 객체를 리턴함. 
 	
 			}				
 		}
