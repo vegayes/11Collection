@@ -28,8 +28,8 @@ public class StudentService {
 	
 	
 //	private List<Student> studentList = new ArrayList<Student>(); // 검색 (조회)에 효율적
-	private List<Student> studentList = new LinkedList<Student>(); // 추가, 수정, 삭제에 효육적
-//	private List studentList= new LinkedList<>(); // 추가, 수정, 삭제에 효육적 (제네릭 없을 때, ) 
+	private List<Student> studentList = new LinkedList<Student>(); // 추가, 수정, 삭제에 효율적
+//	private List studentList= new LinkedList<>(); // 추가, 수정, 삭제에 효율적 (제네릭 없을 때, ) 
 	// <E> :: 제네릭 :::: 타입제한 (앞뒤로 적어주기!)
 	// 리스트를 받아 구현한 자식 클래스 ArrayList /LinkedList / Vector
 	// 결과적으로 보는건 똑같음. 
@@ -238,13 +238,13 @@ public class StudentService {
 		}
 		
 		*/
-		/*
+	
 		for ( int i = 0 ; i < studentList.size(); i++) {
 			
 			System.out.println(studentList.get(i)); // 리스트에 저장된 값 인덱스에 맞게 가져오기.
 													// toString 형태로 출력됨 
 		}	
-		*/
+		
 		
 		
 		
@@ -322,7 +322,7 @@ public class StudentService {
 			int score = sc.nextInt();
 			
 			// 입력받은 index번째에 새로운 학생 정보를 세팅 == 수정
-			// 이때, index번재에 있던 기존 학생 정보가 반환된다. 	
+			// 이때, index번째에 있던 기존 학생 정보가 반환된다. 	
 			Student temp=studentList.set(index,new Student(name,age,region,gender,score));  // index자리값을 수정값으로 변경함. (set사용!) 
 			//set은 기존에 있던 값을 반환함. 즉, temp에는 기존에 있던 값이 됨.
 			
@@ -340,7 +340,7 @@ public class StudentService {
 	public String removeStduent() throws InputMismatchException{
  	
 		// Studnet List.remove(int index);  
-		// 리스트에서 index번재 요소를 제거
+		// 리스트에서 index번째 요소를 제거
 		// 이 때, 제거된 요소가 반환됨. 
 		// ** List는 중간에 비어있는 인덱스가 없게 하기 위해서 
 		// remove() 동작 시, 뒤쪽 요소를 한 칸씩 당겨옴. 

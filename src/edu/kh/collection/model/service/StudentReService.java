@@ -64,6 +64,16 @@ public class StudentReService {
 			}catch (InputMismatchException e){ // 숫자 입력이 아니라 문자입력시, 예외로 처리됨.
 			
 				System.out.println("Error!  입력 형식이 유효하지 않습니다. 다시 시도해주세요!");
+				
+				// 비워주는 값.
+				sc.nextLine(); // 입력 버퍼에 남아있는 잘못된 문자열 제거
+				
+				
+				// 첫 반복할 때 menuNum을 잘못 입력하면, 무한 루프를 돎. ( 왜냐면, 초기화를 0으로 잡았기 때문)
+				// 그러므로 임의값 -1을 예외처리로 작성함.
+				 menuNum = -1;
+			
+			
 			}
 			
 		}while(menuNum!=0);

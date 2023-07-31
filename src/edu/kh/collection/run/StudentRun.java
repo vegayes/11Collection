@@ -10,9 +10,7 @@ public class StudentRun {
 		StudentService  service = new StudentService();
 		
 //		service.displayMenu();
-		
-		
-		
+
 		StudentReService service2 = new StudentReService();
 		service2.menu();
 		
