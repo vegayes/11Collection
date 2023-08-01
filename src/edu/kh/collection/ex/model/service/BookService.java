@@ -22,6 +22,8 @@ public class BookService {
 		
 		Map<String, Object> map = new HashMap<String, Object>();
 		Map<String, Object> map2 = new HashMap<String, Object>();
+		Map<String, Object> map3 = new HashMap<String, Object>();
+		Map<String, Object> map4 = new HashMap<String, Object>();
 		
 		map.put("bookNum", 1);
 		map.put("bookName", "돼지책");
@@ -38,6 +40,21 @@ public class BookService {
 		map2.put("price", 20000);
 		map2.put("publisher", "모르겠다.");
 		bookList.add(map2);
+		
+		
+		map3.put("bookNum", 3);
+		map3.put("bookName", "우무이란머");
+		map3.put("author", "몰라ㅁㄶㅇㄴㅁㅎ");
+		map3.put("price", 200213100);
+		map3.put("publisher", "모르겠다.ㅁㄴㅇㅎㅁㄶ");
+		bookList.add(map3);
+		
+		map4.put("bookNum", 4);
+		map4.put("bookName", "우ㅁㄴㅇㄹㄴㅁㅇㄹ");
+		map4.put("author", "몰ㄴㅁㅇㄹㄴㅁㅇㄹ라");
+		map4.put("price", 200);
+		map4.put("publisher", "모르겠ㅁㅈㄴㅇㄹㄴㅁㅇㄹ다.");
+		bookList.add(map4);
 	}
 	
 	
@@ -56,6 +73,7 @@ public class BookService {
 			System.out.println("5. 도서 좋아요 추가");
 			System.out.println("6. 도서 좋아요 삭제");
 			System.out.println("7. 도서 좋아요 조회");
+			System.out.println("8. 추천 도서");
 			System.out.println("0. 프로그램 종료");
 			
 			System.out.print("\n>> 메뉴 선택  :");
@@ -76,6 +94,7 @@ public class BookService {
 					case 5 : likeAdd();break;
 					case 6 : likeRemove();break;
 					case 7 : likeUpdate();break;
+					case 8 : goodBook();break;
 					case 0 : System.out.println("프로그램이 종료 되었습니다.");break;
 					default :System.out.println("메뉴에 있는 값을 입력해주세요! "); break;
 					
@@ -199,15 +218,13 @@ public class BookService {
 //		System.out.println();
 		sc.nextLine();
 
-		for( int i = 0 ; i < bookList.size(); i++) {
+//		for( int i = 0 ; i < bookList.size(); i++) {
 			
 			for( Map<String, Object> temp : bookList ) {
 				
 //				if( Integer.valueOf((String) temp.get("bookNum")) == replaceNum ) {
 				if( (int)temp.get("bookNum") == replaceNum ) {
-					
-					
-					
+
 					int changeNum = 0;
 					
 					do {
@@ -240,7 +257,7 @@ public class BookService {
 					
 					
 				}	
-			}	
+//			}	
 		}	
 	}
 	
@@ -365,7 +382,7 @@ public class BookService {
 
 		}
 		
-		System.out.print("삭제할 도서 번호를 입력해주세요 :");
+		System.out.print("\n삭제할 도서 번호를 입력해주세요 :");
 		int removeNum = sc.nextInt();
 
 		
@@ -375,7 +392,7 @@ public class BookService {
 				if( (int)temp.get("bookNum") == removeNum) {
 					
 					index = bookList.indexOf(temp);
-					System.out.println(index);
+//					System.out.println(index);
 				
 				}
 
@@ -400,59 +417,39 @@ public class BookService {
 			}	
 			
 		}
-		
-/*		
-//		sc.nextLine();
-
-		for( int i = 0 ; i < bookList.size(); i++) {
-			
-			for( Map<String, Object> temp : bookList ) {
-				
-				if( (int)temp.get("bookNum") == removeNum) {
-					
-					bookList.remove(i);
-				}
-			}
-				
-
-		}	
-		
-		return "삭제를 취소합니다.";
-	
-	
-	*/
 	}
 	/**
 	 *	5. 도서 좋아요 추가
 	 */
 	public void likeAdd() {
 		
-		System.out.println("\n ==== 즐겨찾기 추가 ====");
+		//  조회
+		updateBook();
 		
-		System.out.print("즐겨찾기에 추가할 도서 번호를 입력하세요! :");
+		System.out.println("\n ==== 좋아요 목록 추가 ====");
+		
+		System.out.print("좋아요 목록에 추가할 도서 번호를 입력하세요! :");
 		int likeNum = sc.nextInt();
 		
 //		for( int i = 0 ; i < bookList.size(); i++) {
 		
-			for( Map<String, Object> temp : bookList ) {
+		for( Map<String, Object> temp : bookList ) {
+			
+			if( (int)temp.get("bookNum") == likeNum) {
 				
-				if( (int)temp.get("bookNum") == likeNum) {
-					
-					Map<String,Object> like = new HashMap<String,Object>();
-					
-					// 데이터 추가
-					like.put("bookNum", temp.get("bookNum"));
-					like.put("bookName", temp.get("bookName"));
-					like.put("author", temp.get("author"));
-					like.put("price", temp.get("price"));
-					like.put("publisher", temp.get("publisher"));
-					likeList.add(like);
-				}
-
+				Map<String,Object> like = new HashMap<String,Object>();
+				
+				// 데이터 추가
+				like.put("bookNum", temp.get("bookNum"));
+				like.put("bookName", temp.get("bookName"));
+				like.put("author", temp.get("author"));
+				like.put("price", temp.get("price"));
+				like.put("publisher", temp.get("publisher"));
+				likeList.add(like);
 			}
-//		}
-		
-		
+
+		}
+//	  }
 	}
 	
 	
@@ -525,6 +522,24 @@ public class BookService {
 		}
 		
 	}
+	
+	
+	public void goodBook() {
+		
+		System.out.println("\n==== 추천 도서 ====");
+		
+		int random = (int) (Math.random() * bookList.size() );
+		
+
+		System.out.print(bookList.get(random).get("bookNum")+ "번 도서 ");
+		System.out.print("[ 도서제목 : "+ bookList.get(random).get("bookName")+ " / ");
+		System.out.print("도서저자 : "+ bookList.get(random).get("author")+ " / ");
+		System.out.print("도서가격 : "+ bookList.get(random).get("price")+ " / ");
+		System.out.print("출판사 : "+ bookList.get(random).get("publisher")+ " ]\n");
+
+		
+	}
+	
 
 	
 	
