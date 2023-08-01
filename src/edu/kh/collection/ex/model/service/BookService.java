@@ -24,6 +24,7 @@ public class BookService {
 		Map<String, Object> map2 = new HashMap<String, Object>();
 		Map<String, Object> map3 = new HashMap<String, Object>();
 		Map<String, Object> map4 = new HashMap<String, Object>();
+		Map<String, Object> map4 = new HashMap<String, Object>();
 		
 		map.put("bookNum", 1);
 		map.put("bookName", "돼지책");
