@@ -21,8 +21,7 @@ public class MapService {
 		// HashMap<K,V> : Map의 자식 클래스 중 가장 대표적
 		
 		Map<Integer, String> map = new HashMap<Integer, String>();
-				
-		//???  Value값에 "홍길동", 20 이렇게 넣고 싶으면?? 
+
 		
 		// Map.put(Integer Key, String Value) : 추가 
 		map.put(1, "홍길동");

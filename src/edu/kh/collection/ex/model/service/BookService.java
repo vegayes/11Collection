@@ -21,6 +21,7 @@ public class BookService {
 	public BookService() {
 		
 		Map<String, Object> map = new HashMap<String, Object>();
+		Map<String, Object> map2 = new HashMap<String, Object>();
 		
 		map.put("bookNum", 1);
 		map.put("bookName", "돼지책");
@@ -31,19 +32,16 @@ public class BookService {
 		
 		bookList.add(map);
 		
-		Map<String, Object> map2 = new HashMap<String, Object>();
-		
 		map2.put("bookNum", 2);
 		map2.put("bookName", "우와");
 		map2.put("author", "몰라");
 		map2.put("price", 20000);
 		map2.put("publisher", "모르겠다.");
 		bookList.add(map2);
-		
 	}
 	
 	
-	public void displayMenu() {
+	public void displayMenu() {  // try catch 구문 한번에 잡기. (+ 오류 값 inputMissmatch, exception)
 
 		
 		int menuNum = 0;
@@ -176,7 +174,7 @@ public class BookService {
 	/**
 	 * 3. 도서 수정  (선택해서 도서 수정하기) 
 	 */
-	public void replaceBook() throws InputMismatchException {// try도 생각하기!
+	public void replaceBook() throws InputMismatchException {
 
 		
 		int replaceNum = 0;
@@ -194,7 +192,7 @@ public class BookService {
 			
 		}
 		
-		System.out.print("수정할 도서 번호를 입력해주세요 :");
+		System.out.print("\n수정할 도서 번호를 입력해주세요 :");
 		replaceNum = sc.nextInt();
 		
 		
@@ -382,6 +380,7 @@ public class BookService {
 				}
 
 			}
+
 
 		
 		if(index == -1){
