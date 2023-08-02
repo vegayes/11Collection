@@ -3,10 +3,12 @@ package edu.kh.collection.ex.model.service;
 import java.nio.file.spi.FileSystemProvider;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.Set;
 
 public class BookService {
 
@@ -15,6 +17,8 @@ public class BookService {
 	List<Map<String, Object>> bookList  = new ArrayList<Map<String, Object>>();
 
 	List<Map<String, Object>> likeList  = new ArrayList<Map<String, Object>>();
+	
+	Set<Integer> set = new HashSet<Integer>();
 	
 //	Map<String, Object> bookList = new HashMap<String, Object>();
 	
@@ -179,6 +183,10 @@ public class BookService {
 		
 			for(Map<String, Object> temp : bookList ) {
 				
+				/*
+				int index = bookList.indexOf(temp);
+				System.out.println(index);
+				*/
 				System.out.print(temp.get("bookNum")+ "번 도서 ");
 				System.out.print("[ 도서제목 : "+ temp.get("bookName")+ " / ");
 				System.out.print("도서저자 : "+ temp.get("author")+ " / ");
@@ -275,7 +283,7 @@ public class BookService {
 		String bookNameRe = sc.nextLine();
 		
 		for(Map<String,Object> name : bookList) {
-			
+
 			if((int) name.get("bookNum") == replaceNum ) {
 				
 				name.put("bookName", bookNameRe);
@@ -512,6 +520,7 @@ public class BookService {
 		}else {
 			
 			for(Map<String, Object> temp : likeList ) {
+
 				
 				System.out.print(temp.get("bookNum")+ "번 도서 ");
 				System.out.print("[ 도서제목 : "+ temp.get("bookName")+ " / ");
@@ -531,13 +540,14 @@ public class BookService {
 		
 		int random = (int) (Math.random() * bookList.size() );
 		
-
+		System.out.println(bookList.get(random).get("bookName"));
+/*
 		System.out.print(bookList.get(random).get("bookNum")+ "번 도서 ");
 		System.out.print("[ 도서제목 : "+ bookList.get(random).get("bookName")+ " / ");
 		System.out.print("도서저자 : "+ bookList.get(random).get("author")+ " / ");
 		System.out.print("도서가격 : "+ bookList.get(random).get("price")+ " / ");
 		System.out.print("출판사 : "+ bookList.get(random).get("publisher")+ " ]\n");
-
+*/
 		
 	}
 	

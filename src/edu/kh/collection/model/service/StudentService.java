@@ -260,6 +260,7 @@ public class StudentService {
 		
 		for(Student std : studentList) {
 			// std에는 for문 반복 시 마다 0,1,2.. 인덱스 요소들 한번씩 저장됨
+			
 			System.out.print((index++) + "번 :");
 			System.out.println(std);
 		}
